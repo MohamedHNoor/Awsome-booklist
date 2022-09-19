@@ -60,7 +60,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     ui.clearFields();
   }
   // local storage
-  localStorage.setItem('books', JSON.stringify(bookLists))
+  localStorage.setItem('books', JSON.stringify(bookLists));
   e.preventDefault();
 });
 
