@@ -13,7 +13,8 @@
 ## Live Demo
 
 # WORK FLOW SCREENSHOTS
-![mobile-home-page](./images/mobile-home-page.JPG)
+![mobile-home-page](images/Screenshot%202022-09-19%20at%2019.31.21.JPG)
+![mobile-home-page](images/Screenshot%202022-09-19%20at%2019.31.40.JPG)
 
 ## Prerequisites
 - computer with internet
