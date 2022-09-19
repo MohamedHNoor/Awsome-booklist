@@ -1,9 +1,9 @@
-const bookList = [];
+const bookLists = [];
 // function to add a book
 function Book(title, author) {
   this.title = title;
   this.author = author;
-  bookList.push({ title, author });
+  bookLists.push({ title, author });
 }
 
 function UI() {}
@@ -60,7 +60,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     ui.clearFields();
   }
   // local storage
-
+  localStorage.setItem('books', JSON.stringify(bookLists))
   e.preventDefault();
 });
 
