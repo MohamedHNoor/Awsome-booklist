@@ -1,73 +1,51 @@
-const bookLists = [];
-// function to add a book
-function Book(title, author) {
-  this.title = title;
-  this.author = author;
-  bookLists.push({ title, author });
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const bookForm = document.querySelector('#book-form');
+const displayBook = document.querySelector('.display-book');
+let bookData;
+let bookStore = JSON.parse(localStorage.getItem('localBook')) || [];
+function addBook() {
+  bookData = {
+    title: title.value,
+    author: author.value,
+    id: Math.floor(Math.random() * 1000000),
+  };
+  bookStore.push(bookData);
+  localStorage.setItem('localBook', JSON.stringify(bookStore));
 }
 
-function UI() {}
+function removeBook(id) {
+  bookStore = bookStore.filter((books) => books.id !== id);
+  localStorage.setItem('localBook', JSON.stringify(bookStore));
+}
 
-// Add book to page
-UI.prototype.addBookToPage = (book) => {
-  const list = document.getElementById('add-book');
+function renderBook(bookData) {
+  const div = document.createElement('div');
+  const bookTitle = document.createElement('p');
+  const bookAuthor = document.createElement('p');
+  const removeBtn = document.createElement('button');
+  bookTitle.innerText = bookData.title;
+  bookAuthor.innerText = bookData.author;
+  removeBtn.innerText = 'Remove';
 
-  // create p elements
-  const divEl = document.createElement('div');
+  div.append(bookTitle, bookAuthor, removeBtn);
+  displayBook.append(div);
+  removeBtn.addEventListener('click', () => {
+    removeBtn.parentElement.remove();
+    removeBook(bookData.id);
+  });
+}
 
-  divEl.innerHTML = `
-  <p class="title">${book.title}<p>
-  <p class="author">${book.author}<p>
-  <button class="delete">Remove</button>
-  <hr>
-  `;
-  list.appendChild(divEl);
-};
+bookStore.forEach(renderBook);
 
-// delete book
-UI.prototype.deleteBook = (target) => {
-  if (target.className === 'delete') {
-    target.parentElement.parentElement.remove();
-  }
-};
-
-// clear fields
-UI.prototype.clearFields = () => {
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
-};
-
-// event listener for add book
-document.getElementById('book-form').addEventListener('submit', (e) => {
-  // get form values
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-
-  // instantiate a book
-  const book = new Book(title, author);
-
-  // instantiate UI
-  const ui = new UI();
-
-  // validate
-  if (title === '' || author === '') {
-    alert('Please fill in the fields');
+bookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (title.value !== '' && author.value !== '') {
+    addBook();
+    renderBook(bookData);
+    bookForm.reset();
   } else {
-    // add book to the page
-    ui.addBookToPage(book);
-
-    // clear fields
-    ui.clearFields();
+    // eslint-disable-next-line no-alert
+    alert('Please fill in the fields');
   }
-  // local storage
-  localStorage.setItem('books', JSON.stringify(bookLists));
-  e.preventDefault();
-});
-
-//  event listner for delete
-document.getElementById('add-book').addEventListener('click', (e) => {
-  // instantiate UI
-  const ui = new UI();
-  ui.deleteBook(e.target);
-  e.preventDefault();
 });
