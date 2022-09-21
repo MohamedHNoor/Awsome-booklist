@@ -54,29 +54,10 @@ class Book {
   static removeBookFromLocalStorage(id) {
     const books = Book.getStoredBooks();
 
-
     const newBook = books.filter((book) => book.id !== +id);
 
     localStorage.setItem('localBook', JSON.stringify(newBook));
   }
-
-function renderBook(bookData) {
-  const div = document.createElement('div');
-  const bookTitle = document.createElement('p');
-  const bookAuthor = document.createElement('p');
-  const removeBtn = document.createElement('button');
-  const hr = document.createElement('hr');
-  bookTitle.innerText = bookData.title;
-  bookAuthor.innerText = bookData.author;
-  removeBtn.innerText = 'Remove';
-
-  div.append(bookTitle, bookAuthor, removeBtn, hr);
-  displayBook.append(div);
-  removeBtn.addEventListener('click', () => {
-    removeBtn.parentElement.remove();
-    removeBook(bookData.id);
-  });
-
 }
 
 document.addEventListener('DOMContentLoaded', Book.showBook);
@@ -135,7 +116,6 @@ navForm.addEventListener('click', () => {
 navContact.addEventListener('click', () => {
   navList.classList.remove('active');
   navForm.classList.remove('active');
-  navContact.classList.add('active');
   listSection.classList.add('hidden');
   formSection.classList.add('hidden');
   contactSection.classList.remove('hidden');
