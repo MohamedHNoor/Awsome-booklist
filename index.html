@@ -8,15 +8,57 @@
     <title>Awesome Booklist</title>
   </head>
   <body>
-    <main class="container">
+    <header class="header">
       <h1 class="heading">Awesome Books</h1>
-      <div class="display-book" id="book-collection"></div>
-      <form action="#" id="book-form">
-        <input type="text" id="title" placeholder="Title" /><br />
-        <input type="text" id="author" placeholder="Author" /><br />
-        <input type="submit" id="addBtn" value="Add" />
-      </form>
+      <div class="nav">
+        <a href="#list" class="tablink list active">
+          Books list
+        </a>
+        <a href="#form" class="tablink form">
+          Add book
+        </a>
+        <a href="#contact" class="tablink contact">
+          Contact info
+        </a>
+      </div>
+    </header>
+    <main class="container">
+      <section class="display-book-section tabcontent" id="list">
+        <h2 class="new-books">All Awesome Books</h2>
+        <div id="book-collection"></div>
+      </section>
+
+      <section class="form-section tabcontent hidden" id="form">
+        <h2 class="form-heading">Add a new Book</h2>
+        <form action="#" id="book-form">
+          <input type="text" id="title" placeholder="Title" />
+          <input type="text" id="author" placeholder="Author" />
+          <button type="submit" id="addBtn" value="Add">Submit</button>
+        </form>
+      </section>
+
+      <section id="contact" class="contact-section tabcontent hidden">
+        <h2 class="contact-heading">Contact information</h2>
+        <div class="contact-body">
+          <p class="contact-subheading">
+            Do you have any questions or you just want to say "Hello"?
+          </p>
+          <p class="callOfAction">You can reach out to us!</p>
+          <ul>
+            <li>Our email: <a href="#">mail@mail.com</a></li>
+            <li>Our phone number: <span>0043586534422</span></li>
+            <li>
+              Our address: <span>streetName 22, 84503 city, country</span>
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
+    <footer id="footer" class="footer">
+      <div class="footer-body">
+        <p class="footer-title">Copyright ...</p>
+      </div>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>
