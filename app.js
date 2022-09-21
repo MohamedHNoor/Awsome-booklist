@@ -116,7 +116,6 @@ navForm.addEventListener('click', () => {
 navContact.addEventListener('click', () => {
   navList.classList.remove('active');
   navForm.classList.remove('active');
-  navContact.classList.add('active');
   listSection.classList.add('hidden');
   formSection.classList.add('hidden');
   contactSection.classList.remove('hidden');
