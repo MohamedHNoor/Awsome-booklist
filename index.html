@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="index.js"></script>
     <link rel="stylesheet" href="css/index.css" />
     <title>Awesome Booklist</title>
   </head>
@@ -11,17 +12,12 @@
     <header class="header">
       <h1 class="heading">Awesome Books</h1>
       <div class="nav">
-        <a href="#list" class="tablink list active">
-          Books list
-        </a>
-        <a href="#form" class="tablink form">
-          Add book
-        </a>
-        <a href="#contact" class="tablink contact">
-          Contact info
-        </a>
+        <a href="#list" class="tablink list active"> Books list </a>
+        <a href="#form" class="tablink form"> Add book </a>
+        <a href="#contact" class="tablink contact"> Contact info </a>
       </div>
     </header>
+    <div class="date"></div>
     <main class="container">
       <section class="display-book-section tabcontent" id="list">
         <h2 class="new-books">All Awesome Books</h2>
@@ -31,8 +27,8 @@
       <section class="form-section tabcontent hidden" id="form">
         <h2 class="form-heading">Add a new Book</h2>
         <form action="#" id="book-form">
-          <input type="text" id="title" placeholder="Title" />
-          <input type="text" id="author" placeholder="Author" />
+          <input type="text" id="title" placeholder="Title" required />
+          <input type="text" id="author" placeholder="Author" required />
           <button type="submit" id="addBtn" value="Add">Submit</button>
         </form>
       </section>
@@ -59,6 +55,5 @@
         <p class="footer-title">Copyright ...</p>
       </div>
     </footer>
-    <script src="app.js"></script>
   </body>
 </html>
