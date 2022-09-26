@@ -77,10 +77,6 @@ section {
   margin: 0 auto;
 }
 
-.new-books {
-  text-align: center;
-}
-
 #book-collection {
   border: 1px solid #000;
 }
@@ -89,6 +85,7 @@ section {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
+  text-align: center;
 }
 
 .new_book:nth-child(odd) {
