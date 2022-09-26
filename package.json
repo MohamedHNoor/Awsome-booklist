@@ -1,0 +1,23 @@
+{
+  "name": "awsome-booklist",
+  "version": "1.0.0",
+  "description": "- In this project I will  build a basic website that allows users to add/remove books from a list. - I wanted to understand the different ways to create objects in JavaScript, and how to access properties and methods of JavaScript objects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedHNoor/Awsome-booklist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedHNoor/Awsome-booklist/issues"
+  },
+  "homepage": "https://github.com/MohamedHNoor/Awsome-booklist#readme",
+  "dependencies": {
+    "luxon": "^3.0.4"
+  }
+}
